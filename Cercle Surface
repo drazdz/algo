@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+   /****Périmètre et surface du Cercle (V1.0, 12/01/01)****
+/****************************************************************
+Programme     :  Cercle.cs
+Auteur        :  Lécu Regis & jcc
+Mise à jour   :  31/01/2011
+Fonction      :  ce programme calcule le périmètre et la surface d'un cercle 
+                 à partir de son rayon
+******************************************************************/
+namespace Projet1
+{
+    /// <summary>
+    /// La classe Cercle est notre premier programme enC#. 
+    /// Il permet de calculer la surface d'un cercle en fonction du rayon.
+    /// </summary>
+    class Cercle
+    {
+        static void Main(string[] args)
+        {
+            double rayon;     // rayon en m
+            double perimetre;  // périmètre en m
+            double surface;     // surface en m²
+
+            // Etape 1 : lecture du rayon au clavier
+            rayon = Lire.Entier("Valeur du rayon");
+
+            // Etape 2 : calcul du périmètre
+ 	        perimetre = 2 * Math.PI * rayon;
+
+            // Etape 3 : calcul de la surface
+            surface = Math.PI * rayon * rayon;
+
+            // Etape 4 : affichage du périmètre
+            Console.WriteLine();
+	        Console.WriteLine("  Le cercle de rayon "+ rayon);
+            Console.WriteLine("    a pour perimetre : " + perimetre);
+            Console.WriteLine("    a pour surface : " + surface);
+            Console.ReadLine(); // pour avoir le temps de voir les résultats...
+        }
+    }
+}
