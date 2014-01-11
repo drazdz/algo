@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Calculette
+{
+    
+    class SaisieOperandes
+    {
+        public static int SaisirOperandes (string texte)
+        {
+            int operande;
+            do
+            {
+                operande = Lire.Entier("Saisir le " + texte + " Opérande compris entre " + Program.MINI + " et " + Program.MAXI);
+                if ((operande < Program.MINI) && (operande > Program.MAXI))
+                {
+                    Console.WriteLine("Erreur : Opérande hors limite");
+                }
+
+            } while ((operande < Program.MINI) || (operande > Program.MAXI));
+            // On continue tant que l'operande est inférieur à MINI et supérieur MAXI
+            return operande;
+        }
+    }
+}
