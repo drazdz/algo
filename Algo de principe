@@ -1,0 +1,95 @@
+//******* Algo de principe *******
+
+Debut
+		Repeter reperer_mot
+			Si lgmot = lgmotcherché alors 
+			comparer_mot
+				Si mot = motcherché alors 
+				presencemot = vrai
+				Finsi
+			Finsi
+		Jusqua presencemot = vrai ou lg = 0
+Fin
+
+//******* Interfaces et procedures *******
+
+procedure presence_mot (phrase,motcherché,lg,presencemot)
+procedure reperer_mot (phrase,i,lg)
+procedure comparer_mot (phrase,motcherché,i,lg,presencemot)
+
+procedure presence_mot (entrée phrase : chaine , entrée motcherche : chainemot , entree lg : entier , sortie presencemot : booleen)
+	// Determine si un mot donné est présent dans une phrase donnée
+	// phrase : texte defini par l'utilisateur, où je cherche le mot
+	// motcherche : mot recherché defini par l'utilisateur
+	// lg : longueur de motcherche, defini par l'utilisateur
+	// presencemot : Booleen vrai si le mot cherché est présent.
+	
+	
+procedure reperer_mot(entrée phrase : chaine , entrée sortie i : entier , sortie lg : entier)
+	// Repère un mot dans la phrase, lg = 0 si pas de mot.
+	// phrase : texte ou je cherche le mot
+	// i entrée :  indice à partir duquel je cherche le mot
+	// i sortie : indice juste aprés le mot, ou sur STOP si lg = 0
+	// lg : nombre de caractères du mot detecté
+	
+	
+procedure comparer_mot (entrée phrase : chaine , entrée motcherche : chainemot , entrée i : entier , entree lg : entier , sortie presencemot : booleen)
+	// Compare 2 mot et determine si ce sont les mêmes
+	// phrase : texte ou je cherche le mot
+	// motcherché : mot recherché à comparer avec le mot trouvé
+	// i :  indice positionné sur le caractere suivant le mot
+	// lg : nombre de caractère du mot repérer
+	// presencemot : Booleen vrai si les mots comparés sont identiques.
+
+	
+//******* Jeux de test *******
+
+//** Procedure presence_mot **
+
+procedure presence_mot (entrée phrase : chaine , entrée motcherche : chainemot , entree lg : entier , sortie presencemot : booleen)
+	// Determine si un mot donné est présent dans une phrase donnée
+	// phrase : texte defini par l'utilisateur, où je cherche le mot
+	// motcherche : mot recherché defini par l'utilisateur
+	// lg : longueur de motcherche, defini par l'utilisateur
+	// presencemot : Booleen vrai si le mot cherché est présent.
+	
+Entrée 														Sortie
+
+1)
+phrase = "Le chat est gris."								"Le chat est gris."		
+mot = 0																	
+lg = 0														
+
+//** Procedure reperer_mot **
+
+
+procedure reperer_mot(entrée phrase : chaine , entrée sortie i : entier , sortie lg : entier)
+	// Repère un mot dans la phrase, lg = 0 si pas de mot.
+	// phrase : texte ou je cherche le mot
+	// i entrée :  indice à partir duquel je cherche le mot
+	// i sortie : indice juste aprés le mot, ou sur STOP si lg = 0
+	// lg : nombre de caractères du mot detecté
+
+Entrée 														Sortie
+
+phrase = "Le chat est gris."								"Le chat est gris."		
+i = 0														i = 3			
+lg = 0														lg = 2
+
+
+//** Procedure comparer_mot **
+
+Entrée 														Sortie
+1)
+phrase = "Le chat est gris."								"Le chat est gris."
+motcherche = "la"											"la"
+i = 3														i = 3			
+lg = 2														lg = 2
+presencemot = FAUX											FAUX
+
+2)
+phrase = "Le chat est gris."								"Le chat est gris."
+motcherche = "le"											"la"
+i = 3														i = 3			
+lg = 2														lg = 2
+presencemot = FAUX
