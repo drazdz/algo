@@ -1,0 +1,19 @@
+procedure comparer_mot (entrée phrase : chaine , entrée motcherche : chainemot , entrée i : entier , entree lg : entier , sortie presencemot : booleen)
+	// Compare 2 mot et determine si ils sont identiques
+	// phrase : texte ou je cherche le mot
+	// motcherche: mot recherché à comparer avec le mot trouvé
+	// i :  indice positionné sur le caractere suivant le mot
+	// lg : nombre de caractère du mot repérer
+	// presencemot : Booleen vrai si les mots comparés sont égaux
+	
+	
+Debut
+		i:=i-1																		// On positionne i sur le dernier caractere du mot trouvé
+		
+			Tantque (lg <> 0) et (phrase[i] = motcherche[lg]) faire					// Parcours du mot trouvé en comparant avec le mot cherché
+				i:=i-1																// Arrêt quand lg=0 ou quand les mots sont differents
+				lg:=lg-1
+			Fintantque
+		
+		presencemot:=(lg=0)															// Resultat de la comparaison
+Fin
