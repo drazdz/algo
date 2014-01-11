@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Calculette
+{
+    public class Program
+    {
+        public const int MINI = -1000;
+        public const int MAXI = 1000;
+
+    
+
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("*** Projet Calculette ***");
+            Console.WriteLine();
+            int resultat;
+            bool reussite;
+            do
+            {
+
+                int operande1 = SaisieOperandes.SaisirOperandes("premier");
+                int operande2 = SaisieOperandes.SaisirOperandes("deuxième");
+                char operateur = SaisieOperateur.SaisirOperateur();
+                reussite = EffectueCalcul.EffectuerCalcul(operande1, operande2, operateur, out resultat);
+                AffichageResultat.AfficherResultat(ref resultat, reussite); 
+            } while (Dialogue.veutcontinuer());
+           
+            
+        }  
+    }       
+}
