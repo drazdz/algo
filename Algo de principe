@@ -92,4 +92,4 @@ phrase = "Le chat est gris."								"Le chat est gris."
 motcherche = "le"											"la"
 i = 3														i = 3			
 lg = 2														lg = 2
-presencemot = FAUX
+presencemot = VRAI
