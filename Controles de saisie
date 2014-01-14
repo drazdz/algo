@@ -1,0 +1,135 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Text.RegularExpressions;
+
+namespace Controles_de_saisie
+{
+    public partial class Formulaire : Form
+    {
+       
+        public Formulaire()
+        {
+            InitializeComponent();
+        }
+
+        #region Validation des champs
+        private void DateBox_Validating(object sender, CancelEventArgs e)
+        {
+            DateTime dateValide;
+
+            if (DateBox.Text == "  /  /")
+            {
+                errorProvider1.SetError(FormatdateLabel, "");
+                e.Cancel = false;
+            }
+            else if (!DateTime.TryParse(DateBox.Text, out dateValide))
+            {
+                errorProvider1.SetError(FormatdateLabel, "Date non Valide");
+                e.Cancel = true;
+
+            }
+            else if(dateValide < DateTime.Now)
+            {
+                errorProvider1.SetError(FormatdateLabel, "La date doit être supérieur à la date du jour");
+                e.Cancel = true;
+            } 
+            else
+                errorProvider1.SetError(FormatdateLabel, "");
+        }
+
+        private void NomBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (NomBox.Text.Length == 0)
+            {
+                errorProvider1.SetError(NomBox, "");
+                e.Cancel = false;
+            }
+            else if (!Regex.IsMatch(NomBox.Text, "^[A-Za-z]+$"))
+            {
+                errorProvider1.SetError(NomBox, "Nom Invalide");
+                e.Cancel = true;
+            }
+            else
+                errorProvider1.SetError(NomBox, "");
+        }
+
+        private void MontantBox_Validating(object sender, CancelEventArgs e)
+        {
+            decimal montant;
+
+            if (MontantBox.Text.Length == 0)
+            {
+                errorProvider1.SetError(MontantBox, "");
+                e.Cancel = false;
+            }
+
+            else if (!decimal.TryParse(MontantBox.Text, out montant))
+            {
+                errorProvider1.SetError(MontantBox, "Montant non Valide");
+                e.Cancel = true;
+            }
+            else if(montant < 0)
+            {
+                
+            errorProvider1.SetError(MontantBox, "Montant négatif");
+                e.Cancel = true;
+            }
+            else
+                errorProvider1.SetError(MontantBox, "");
+
+        }
+
+        private void PostalBox_Validating(object sender, CancelEventArgs e)
+        {
+            int cp;
+
+            if (PostalBox.Text.Length == 0)
+            {
+                errorProvider1.SetError(PostalBox, "");
+                e.Cancel = false;
+            }
+
+            else if (!int.TryParse(PostalBox.Text, out cp))
+            {
+                errorProvider1.SetError(PostalBox, "Code Postal Invalide");
+                e.Cancel = true;
+            }
+            else
+                errorProvider1.SetError(PostalBox, "");
+        }
+        #endregion
+        #region Valider et Quitter
+        private void butValider_Validating(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void butValider_Click(object sender, EventArgs e)
+        {
+
+        }
+        
+        private void butEffacer_Click(object sender, EventArgs e)
+        {
+            NomBox.Clear();
+            DateBox.Clear();
+            MontantBox.Clear();
+            PostalBox.Clear();
+            errorProvider1.Clear();
+        }
+
+        private void Formulaire_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+    }
+}
+        #endregion
